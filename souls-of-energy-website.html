@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Souls of Energy — door Nancy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sand: #f5efe6;
+      --warm-stone: #8b7355;
+      --deep-earth: #3d2b1f;
+      --soft-gold: #c9a96e;
+      --blush: #d4a89a;
+      --mist: #e8ddd0;
+      --cream: #faf7f2;
+      --sage: #a8b5a0;
+      --deep-sage: #6b7d63;
+      --rose-mist: #e8cdc4;
+      --night: #2a1f14;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background: var(--cream);
+      color: var(--deep-earth);
+      line-height: 1.85;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════════════
+       NAV
+    ══════════════════════════════════════ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 3.5rem;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(139, 115, 85, 0.08);
+      transition: padding 0.3s, box-shadow 0.3s;
+    }
+    .nav.scrolled {
+      padding: 0.8rem 3.5rem;
+      box-shadow: 0 2px 30px rgba(61, 43, 31, 0.06);
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--warm-stone);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-brand span {
+      color: var(--soft-gold);
+      font-style: italic;
+      text-transform: none;
+      letter-spacing: 0.05em;
+    }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--warm-stone);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--soft-gold);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--soft-gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px;
+    }
+    .menu-toggle span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--warm-stone);
+      transition: all 0.3s;
+    }
+
+    /* ══════════════════════════════════════
+       DECORATIVE ELEMENTS
+    ══════════════════════════════════════ */
+    .stones-divider {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.7rem; padding: 1.5rem 0;
+    }
+    .stone-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--soft-gold); opacity: 0.4;
+    }
+    .stone-dot.lg { width: 10px; height: 10px; opacity: 0.6; }
+    .stone-dot.sm { width: 5px; height: 5px; opacity: 0.25; }
+    .stone-line {
+      width: 50px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--soft-gold), transparent);
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 6rem;
+      position: relative;
+      background:
+        radial-gradient(ellipse at 25% 15%, rgba(201, 169, 110, 0.1) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 85%, rgba(212, 168, 154, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(168, 181, 160, 0.05) 0%, transparent 60%),
+        var(--cream);
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a96e' fill-opacity='0.03'%3E%3Cpath d='M40 40c0-11.046-8.954-20-20-20S0 28.954 0 40s8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-content {
+      position: relative;
+      max-width: 720px;
+      animation: heroFade 1.4s ease-out;
+    }
+    .hero-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--soft-gold);
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--deep-earth);
+      margin-bottom: 0.8rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--warm-stone);
+    }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--blush);
+      margin-bottom: 2.5rem;
+    }
+    .hero-intro {
+      font-size: 1.05rem;
+      color: var(--warm-stone);
+      max-width: 560px;
+      margin: 0 auto 3rem;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 0.9rem 2.8rem;
+      background: var(--warm-stone);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      transition: all 0.4s;
+      border: 1px solid var(--warm-stone);
+    }
+    .hero-cta:hover {
+      background: transparent;
+      color: var(--warm-stone);
+    }
+
+    /* ══════════════════════════════════════
+       SHARED SECTION STYLES
+    ══════════════════════════════════════ */
+    .section {
+      padding: 5.5rem 2rem;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .section-wide {
+      max-width: 100%;
+      padding: 5.5rem 2rem;
+    }
+    .section-wide .inner {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .bg-sand { background: var(--sand); }
+    .bg-earth {
+      background: var(--deep-earth);
+      color: var(--sand);
+    }
+    .bg-earth .section-title { color: var(--sand); }
+    .bg-earth .section-subtitle { color: var(--blush); }
+    .bg-earth p { color: rgba(245, 239, 230, 0.8); }
+    .bg-night {
+      background: var(--night);
+      color: var(--sand);
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--soft-gold);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      color: var(--deep-earth);
+      margin-bottom: 0.3rem;
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--warm-stone);
+    }
+    .section-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--blush);
+      margin-bottom: 2.2rem;
+    }
+    .section p {
+      margin-bottom: 1.3rem;
+      font-size: 1rem;
+      color: #5a4a3a;
+    }
+    .section-wide p {
+      margin-bottom: 1.3rem;
+      font-size: 1rem;
+      color: #5a4a3a;
+    }
+
+    /* ══════════════════════════════════════
+       QUOTE BLOCK
+    ══════════════════════════════════════ */
+    .quote-block {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .quote-block blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--warm-stone);
+      max-width: 620px;
+      margin: 0 auto 0.8rem;
+      line-height: 1.5;
+    }
+    .quote-block cite {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blush);
+      font-style: normal;
+    }
+
+    /* ══════════════════════════════════════
+       DIENSTEN GRID (Services)
+    ══════════════════════════════════════ */
+    .diensten-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+    .dienst-card {
+      background: var(--cream);
+      border: 1px solid rgba(201, 169, 110, 0.15);
+      border-radius: 20px;
+      padding: 2.2rem 1.8rem;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .dienst-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--soft-gold), var(--blush));
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .dienst-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(61, 43, 31, 0.08);
+    }
+    .dienst-card:hover::before { opacity: 1; }
+    .dienst-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .dienst-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--deep-earth);
+      margin-bottom: 0.6rem;
+    }
+    .dienst-card p {
+      font-size: 0.92rem;
+      color: #6b5d4f;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    /* ══════════════════════════════════════
+       DETAIL SECTIONS (Two-column feel)
+    ══════════════════════════════════════ */
+    .detail-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    .detail-block.reverse { direction: rtl; }
+    .detail-block.reverse > * { direction: ltr; }
+    .detail-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--deep-earth);
+      margin-bottom: 0.8rem;
+    }
+    .detail-text h3 em { color: var(--warm-stone); font-style: italic; }
+    .detail-visual {
+      background: var(--sand);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .detail-visual::after {
+      content: '';
+      position: absolute; bottom: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, var(--soft-gold) 0%, transparent 70%);
+      opacity: 0.15;
+    }
+    .detail-visual .big-icon {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .detail-visual .caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--warm-stone);
+    }
+
+    /* ══════════════════════════════════════
+       STEPS / PROCESS
+    ══════════════════════════════════════ */
+    .steps {
+      display: flex; flex-direction: column;
+      gap: 1.8rem; margin-top: 2rem;
+    }
+    .step {
+      display: flex; gap: 1.8rem; align-items: flex-start;
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--soft-gold);
+      opacity: 0.45;
+      line-height: 1;
+      min-width: 45px;
+      text-align: center;
+    }
+    .step-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--deep-earth);
+      margin-bottom: 0.3rem;
+    }
+    .step-body p {
+      font-size: 0.95rem;
+      color: #6b5d4f;
+    }
+
+    /* ══════════════════════════════════════
+       INFO BAR
+    ══════════════════════════════════════ */
+    .info-bar {
+      display: flex;
+      justify-content: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+      padding: 3rem 2rem;
+      background: var(--deep-earth);
+      color: var(--sand);
+    }
+    .info-item { text-align: center; }
+    .info-item .label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--soft-gold);
+      margin-bottom: 0.25rem;
+    }
+    .info-item .value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+    }
+
+    /* ══════════════════════════════════════
+       BOOKING SECTION
+    ══════════════════════════════════════ */
+    .booking-section {
+      text-align: center;
+      padding: 5rem 2rem;
+      background:
+        radial-gradient(ellipse at 30% 30%, rgba(168, 181, 160, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 70%, rgba(201, 169, 110, 0.06) 0%, transparent 50%),
+        var(--cream);
+    }
+    .booking-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 2.5rem auto 0;
+    }
+    .booking-card {
+      background: white;
+      border: 1px solid rgba(201, 169, 110, 0.15);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .booking-card:hover {
+      border-color: var(--soft-gold);
+      box-shadow: 0 8px 32px rgba(61, 43, 31, 0.06);
+    }
+    .booking-card .b-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+    .booking-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--deep-earth);
+      margin-bottom: 0.4rem;
+    }
+    .booking-card p {
+      font-size: 0.85rem;
+      color: #7a6b5d;
+      margin-bottom: 0;
+    }
+
+    /* ══════════════════════════════════════
+       CTA / CONTACT
+    ══════════════════════════════════════ */
+    .cta-section {
+      text-align: center;
+      padding: 5.5rem 2rem;
+      background: var(--night);
+      color: var(--sand);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(201, 169, 110, 0.06) 0%, transparent 60%);
+    }
+    .cta-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      color: var(--sand);
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+    .cta-section p {
+      color: rgba(245, 239, 230, 0.7);
+      margin-bottom: 2rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: var(--soft-gold);
+      color: var(--night);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      transition: all 0.4s;
+      font-weight: 600;
+      position: relative;
+    }
+    .cta-btn:hover {
+      background: var(--sand);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 169, 110, 0.3);
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: var(--warm-stone);
+      letter-spacing: 0.08em;
+      background: var(--cream);
+    }
+    .footer span { color: var(--soft-gold); }
+
+    /* ══════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════ */
+    @keyframes heroFade {
+      from { opacity: 0; transform: translateY(35px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .fade-in.visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(250, 247, 242, 0.97);
+        padding: 1.5rem;
+        gap: 1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(139, 115, 85, 0.1);
+      }
+      .section { padding: 3.5rem 1.5rem; }
+      .section-wide { padding: 3.5rem 1.5rem; }
+      .detail-block { grid-template-columns: 1fr; gap: 2rem; }
+      .detail-block.reverse { direction: ltr; }
+      .info-bar { gap: 1.5rem; padding: 2rem 1rem; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .step { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-brand">Souls <span>of</span> Energy</a>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#over-mij">Over mij</a></li>
+      <li><a href="#diensten">Diensten</a></li>
+      <li><a href="#fotoreading">Foto Reading</a></li>
+      <li><a href="#healing">Healing & Reiki</a></li>
+      <li><a href="#massage">Massage</a></li>
+      <li><a href="#boeken">Boeken</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-label">Welkom bij Souls of Energy</div>
+      <h1>Voel de kracht<br/>van <em>jouw ziel</em></h1>
+      <p class="hero-sub">Healing, intuïtie en verbinding — door Nancy</p>
+      <p class="hero-intro">
+        Bij Souls of Energy werk ik vanuit mijn hart en intuïtie. Of het nu gaat om een healing, een foto reading, een intuïtieve massage of een kaartlegging — ik help je om weer in verbinding te komen met jezelf en jouw energie.
+      </p>
+      <div class="stones-divider">
+        <div class="stone-dot sm"></div>
+        <div class="stone-line"></div>
+        <div class="stone-dot lg"></div>
+        <div class="stone-line"></div>
+        <div class="stone-dot sm"></div>
+      </div>
+      <br/>
+      <a href="#boeken" class="hero-cta">Boek een sessie</a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       1. WIE BEN IK?
+  ═══════════════════════════════════════ -->
+  <section class="section fade-in" id="over-mij">
+    <div class="section-label">Over mij</div>
+    <h2 class="section-title">Wie ben ik?</h2>
+    <p class="section-subtitle">Nancy — de ziel achter Souls of Energy</p>
+
+    <p>
+      Hallo, ik ben Nancy. Al van jongs af aan ben ik gevoelig voor energieën om mij heen. Ik voelde dingen die anderen niet voelden, wist dingen die ik eigenlijk niet kon weten, en had een sterke intuïtie die me altijd de weg wees — ook als die weg anders liep dan verwacht.
+    </p>
+    <p>
+      Met Souls of Energy geef ik vorm aan mijn levensmissie: mensen helpen om weer in contact te komen met hun eigen kracht, hun eigen energie en hun eigen ziel. Ik werk vanuit liefde, eerlijkheid en diep respect voor ieder mens die op mijn pad komt.
+    </p>
+    <p>
+      Ik geloof dat ieder van ons de antwoorden al in zich draagt. Soms heb je alleen iemand nodig die je helpt om ze weer te horen. Dat is wat ik doe — met mijn handen, mijn hart en mijn gave.
+    </p>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       2. WAAROM DIT PAD
+  ═══════════════════════════════════════ -->
+  <section class="section-wide bg-sand fade-in">
+    <div class="inner">
+      <div class="section-label">Mijn verhaal</div>
+      <h2 class="section-title">Waarom ik <em>dit pad</em> gekozen heb</h2>
+      <p class="section-subtitle">Of beter gezegd — waarom dit pad mij gekozen heeft</p>
+
+      <p>
+        Mijn reis naar het spirituele werk is niet iets wat ik op een dag bewust heb besloten. Het is een pad dat zich stap voor stap aan mij heeft geopenbaard. Na jaren van zoeken, voelen en af en toe ook worstelen, begreep ik dat mijn gevoeligheid geen zwakte is — maar juist mijn grootste kracht.
+      </p>
+      <p>
+        Toch was ik in het begin bang voor het onbekende. Het voelde spannend en onzeker om mij over te geven aan iets wat ik niet kon zien of verklaren. Maar op een gegeven moment heb ik mijn angst losgelaten, het met twee handen aangepakt — en toen gebeurde er iets bijzonders. Er kwamen alleen maar mooie tekens op mijn pad. Alsof het universum zei: <em>„Dit is waar je hoort te zijn."</em>
+      </p>
+      <p>
+        Ik heb geleerd mijn intuïtie te vertrouwen, mijn gaven te ontwikkelen en in te zetten voor anderen. Elke levensgebeurtenis, elke ervaring en elke ontmoeting heeft mij gebracht waar ik nu ben. En waar ik nu ben, voelt als thuiskomen.
+      </p>
+      <p>
+        Met Souls of Energy deel ik mijn gaven met de wereld. Niet vanuit ego, maar vanuit een diep verlangen om bij te dragen aan het welzijn van anderen. Want als jij in balans bent, straalt dat uit naar alles en iedereen om je heen.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ QUOTE ═══════════════ -->
+  <div class="quote-block fade-in">
+    <div class="stones-divider">
+      <div class="stone-dot sm"></div>
+      <div class="stone-line"></div>
+      <div class="stone-dot lg"></div>
+      <div class="stone-line"></div>
+      <div class="stone-dot sm"></div>
+    </div>
+    <blockquote>
+      „Ik lees niet jouw toekomst — ik help je voelen wat jouw ziel al weet."
+    </blockquote>
+    <cite>— Nancy, Souls of Energy</cite>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       DIENSTEN OVERZICHT
+  ═══════════════════════════════════════ -->
+  <section class="section-wide bg-earth fade-in" id="diensten">
+    <div class="inner">
+      <div class="section-label" style="color: var(--soft-gold);">Mijn aanbod</div>
+      <h2 class="section-title" style="color: var(--sand);">Wat ik voor je <em>kan betekenen</em></h2>
+      <p class="section-subtitle">Ontdek de behandeling die bij jou past</p>
+
+      <div class="diensten-grid">
+        <div class="dienst-card">
+          <span class="dienst-icon">📸</span>
+          <h3>Foto Reading</h3>
+          <p>Via een foto ontvang ik boodschappen en inzichten over jou of een dierbare. Intuïtief en eerlijk.</p>
+        </div>
+        <div class="dienst-card">
+          <span class="dienst-icon">✨</span>
+          <h3>Healing</h3>
+          <p>Energetische healing om blokkades op te heffen en jouw energie weer te laten stromen.</p>
+        </div>
+        <div class="dienst-card">
+          <span class="dienst-icon">🙌</span>
+          <h3>Reiki</h3>
+          <p>Universele levensenergie die via mijn handen naar jou stroomt — rustgevend en herstellend.</p>
+        </div>
+        <div class="dienst-card">
+          <span class="dienst-icon">🪨</span>
+          <h3>Intuïtief masseren</h3>
+          <p>Met hot stones én jade stenen gecombineerd. Een massage die luistert naar jouw lichaam.</p>
+        </div>
+        <div class="dienst-card">
+          <span class="dienst-icon">🃏</span>
+          <h3>Kaartlegging</h3>
+          <p>Via orakelkaarten ontvang je boodschappen en richting voor jouw levensvragen.</p>
+        </div>
+        <div class="dienst-card">
+          <span class="dienst-icon">💌</span>
+          <h3>Foto Boodschap</h3>
+          <p>Stuur me een foto en ontvang een persoonlijke, intuïtieve boodschap terug.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       3. WAT IS EEN FOTO READING?
+  ═══════════════════════════════════════ -->
+  <section class="section fade-in" id="fotoreading">
+    <div class="section-label">Foto Reading</div>
+    <h2 class="section-title">Wat is een <em>foto reading?</em></h2>
+    <p class="section-subtitle">Een venster naar de energie achter het beeld</p>
+
+    <p>
+      Een foto reading is een intuïtieve techniek waarbij ik via een foto van een persoon energie, gevoelens en boodschappen kan waarnemen. Een foto vangt niet alleen een beeld — het vangt ook de energie van dat moment en van die persoon.
+    </p>
+    <p>
+      Door mij op de foto te richten, kan ik voelen wat er speelt op emotioneel, mentaal en soms ook fysiek niveau. Ik ontvang beelden, woorden of gevoelens die inzicht kunnen geven in jouw situatie of die van een dierbare. Dit kan gaan over relaties, levenspad of overledenen die een boodschap willen doorgeven.
+    </p>
+    <p>
+      Een foto reading kan bijzonder troostend zijn, maar ook verhelderend. Het brengt vaak dingen naar boven waar je diep van binnen al iets van voelde, maar nog niet kon plaatsen.
+    </p>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       4. HOE WERKT EEN FOTO READING BIJ MIJ?
+  ═══════════════════════════════════════ -->
+  <section class="section-wide bg-sand fade-in">
+    <div class="inner">
+      <div class="section-label">Mijn werkwijze</div>
+      <h2 class="section-title">Hoe werkt een foto reading <em>bij mij?</em></h2>
+      <p class="section-subtitle">Puur, eerlijk en vanuit het hart</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h3>Je stuurt mij een foto</h3>
+            <p>Dit kan een foto zijn van jezelf of een dierbare. Het is belangrijk dat het een recente foto is, het liefst van diezelfde dag — zo kan ik de energie van nu lezen. Gaat het om een overledene? Die lees ik altijd, ongeacht wanneer de foto is gemaakt. Belangrijk: ik werk alleen met een foto als ik toestemming heb van de persoon zelf.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <h3>Ik stem mij af op de energie</h3>
+            <p>Om mij goed te kunnen afstemmen, heb ik naast de foto ook de geboortedatum en de voor- en achternaam nodig van de persoon op de foto. Vervolgens neem ik de tijd om mij in stilte te verbinden met de energie. Ik laat mijn intuïtie het werk doen en ontvang beelden, woorden, gevoelens, boodschappen en handvaten.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h3>Ik deel wat ik ontvang</h3>
+            <p>Tijdens de foto reading zijn we samen aanwezig, zodat er een gelijkwaardige verbinding ontstaat. Ik deel direct wat ik ontvang en jij kunt meteen reageren met ja, nee of weet ik niet. Belangrijk: je mag tijdens de reading niet zomaar praten — als er gepraat wordt, raak ik uit verbinding en dat is zonde, want dan zouden sommige boodschappen of handvaten niet meer doorkomen. Zo blijft de energie zuiver en kan ik mij volledig op jouw reading richten. Alles wat ik doorgeef, doe ik met eerlijkheid en liefde.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <h3>Ruimte voor jouw vragen</h3>
+            <p>Na de reading is er altijd ruimte voor vragen en tijd om lekker na te kletsen over alles wat er naar voren is gekomen. Juist omdat je tijdens de reading niet mag praten, is dit het moment om alles te bespreken, te vragen en te verwerken. Soms roept een boodschap herkenning op, soms verrassing — beide zijn waardevol.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       5. WAT IS HEALING?
+  ═══════════════════════════════════════ -->
+  <section class="section fade-in" id="healing">
+    <div class="section-label">Healing</div>
+    <h2 class="section-title">Wat is <em>healing?</em></h2>
+    <p class="section-subtitle">Het activeren van je eigen zelfherstellend vermogen</p>
+
+    <p>
+      Healing is een energetische behandeling waarbij ik als kanaal dien voor helende energie. Het woord 'healing' komt van het Engelse woord 'to heal' — genezen, heel maken. Het doel is om energetische blokkades in je lichaam en auraveld op te heffen, zodat je eigen energie weer vrij kan stromen.
+    </p>
+    <p>
+      Ons lichaam heeft van nature een enorm zelfherstellend vermogen. Door stress, emoties, trauma's of negatieve ervaringen kunnen er blokkades ontstaan die dit vermogen belemmeren. Healing helpt om die blokkades zachtjes los te maken, waardoor je lichaam, geest en ziel weer in balans komen.
+    </p>
+    <p>
+      Healing werkt niet alleen op het fysieke lichaam, maar ook op het emotionele, mentale en spirituele vlak. Veel mensen ervaren na een healing een diep gevoel van rust, helderheid of opluchting.
+    </p>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       6. HOE WERKT HEALING BIJ MIJ?
+  ═══════════════════════════════════════ -->
+  <section class="section-wide bg-sand fade-in">
+    <div class="inner">
+      <div class="section-label">Mijn aanpak</div>
+      <h2 class="section-title">Hoe werkt healing <em>bij mij?</em></h2>
+      <p class="section-subtitle">Intuïtief, warm en afgestemd op jou</p>
+
+      <p>
+        Bij een healing sessie bij mij begin ik altijd met even samen te zitten en te bespreken hoe je je voelt en waar je tegenaan loopt. Vervolgens ga je comfortabel liggen en sluit ik mijn ogen om mij op jouw energieveld af te stemmen.
+      </p>
+      <p>
+        Ik werk met mijn handen boven en op je lichaam. Ik voel waar de energie stagneert, waar blokkades zitten en waar je lichaam om aandacht vraagt. Soms ontvang ik ook beelden of boodschappen die ik na afloop met je deel.
+      </p>
+      <p>
+        Elke healing is anders, want elke persoon is anders en elke dag is anders. Ik volg altijd mijn intuïtie en wat jouw energie op dat moment nodig heeft. Sommige sessies zijn intens, andere juist heel zacht en rustgevend. Wat het ook is — het is precies wat er op dat moment mag zijn.
+      </p>
+      <p>
+        Na de healing nemen we de tijd om na te praten en geef ik je eventueel tips mee voor thuis.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ QUOTE ═══════════════ -->
+  <div class="quote-block fade-in">
+    <div class="stones-divider">
+      <div class="stone-dot sm"></div>
+      <div class="stone-line"></div>
+      <div class="stone-dot lg"></div>
+      <div class="stone-line"></div>
+      <div class="stone-dot sm"></div>
+    </div>
+    <blockquote>
+      „Healing is geen magie — het is terug naar de essentie van wie je werkelijk bent."
+    </blockquote>
+    <cite>— Nancy, Souls of Energy</cite>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       7. WAT IS REIKI?
+  ═══════════════════════════════════════ -->
+  <section class="section fade-in">
+    <div class="section-label">Reiki</div>
+    <h2 class="section-title">Wat is <em>Reiki?</em></h2>
+    <p class="section-subtitle">Universele levensenergie door handoplegging</p>
+
+    <p>
+      Reiki is een Japanse helingmethode die in de 19e eeuw is ontwikkeld door Mikao Usui. Het woord 'Reiki' bestaat uit twee Japanse woorden: <em>Rei</em> (universeel, spiritueel) en <em>Ki</em> (levensenergie). Samen betekent het: universele levensenergie.
+    </p>
+    <p>
+      Tijdens een reikibehandeling leg ik mijn handen op of net boven je lichaam op specifieke posities. Via mijn handen stroomt universele energie naar jou toe — precies daarheen waar het op dat moment het hardst nodig is. Reiki werkt op alle niveaus: fysiek, emotioneel, mentaal en spiritueel.
+    </p>
+    <p>
+      Reiki is een zachte, niet-invasieve methode die geschikt is voor iedereen. Je hoeft er niets voor te doen — alleen maar te ontvangen. Veel mensen ervaren warmte, tintelingen of een diep gevoel van ontspanning tijdens de behandeling. Het is een prachtige manier om je energiebalans te herstellen en innerlijke rust te vinden.
+    </p>
+    <p>
+      Ik combineer reiki vaak met mijn eigen intuïtieve werkwijze, waardoor de behandeling nog persoonlijker en krachtiger wordt.
+    </p>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       8. INTUÏTIEF MASSEREN MET HOT STONES / JADE
+  ═══════════════════════════════════════ -->
+  <section class="section-wide bg-sand fade-in" id="massage">
+    <div class="inner">
+      <div class="section-label">Massage</div>
+      <h2 class="section-title">Intuïtief masseren met <em>hot stones én jade stenen</em></h2>
+      <p class="section-subtitle">Waar warmte en intuïtie samenkomen</p>
+
+      <p>
+        Bij een intuïtieve massage volg ik geen vast protocol. Het is een ontspannende massage waarbij mijn handen blijven hangen waar de spanning zit. Ik raak je aan vanuit hartgevoel en intuïtie — ik laat de energie vanuit mijn hart via mijn handen stromen en verbind mijzelf met jou. Vanuit die verbinding voel ik precies waar jouw lichaam aandacht nodig heeft. Elke massage is daardoor uniek — precies afgestemd op wat jij op dat moment nodig hebt.
+      </p>
+      <p>
+        Vanuit die verbinding kan ik er, als stenen gewenst zijn, warme stenen bij gebruiken. Ik werk met hot stones gecombineerd met jade stenen:
+      </p>
+
+      <div class="detail-block" style="margin: 2.5rem 0;">
+        <div class="detail-visual">
+          <span class="big-icon">🪨</span>
+          <span class="caption">Warmte van de aarde</span>
+          <p style="margin-top: 1rem; font-size: 0.92rem; color: #6b5d4f;">
+            <strong style="color: var(--deep-earth);">Hot Stones</strong> — Verwarmde basaltstenen die miljoenen jaren oud zijn. De diepe, doordringende warmte ontspant het spierweefsel, opent de energiebanen en helpt je lichaam om op een diep niveau los te laten.
+          </p>
+        </div>
+        <div class="detail-visual">
+          <span class="big-icon">💎</span>
+          <span class="caption">Zachte, helende energie</span>
+          <p style="margin-top: 1rem; font-size: 0.92rem; color: #6b5d4f;">
+            <strong style="color: var(--deep-earth);">Jade Stenen</strong> — Jade staat al eeuwenlang bekend als de steen van harmonie, balans en heling. Jade stenen hebben een kalmerende, zuiverende werking en vullen de warmte van de hot stones prachtig aan.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Door beide stenen samen te gebruiken, ontstaat er een krachtige combinatie van warmte, aarden en zuiveren.
+      </p>
+      <p>
+        Na afloop voelen veel mensen zich lichter, rustiger en meer in balans — alsof er een laag is afgevallen die ze al lang met zich meedroegen.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       9. KAARTLEGGING
+  ═══════════════════════════════════════ -->
+  <section class="section fade-in">
+    <div class="section-label">Kaartlegging</div>
+    <h2 class="section-title">Kaartlegging</h2>
+    <p class="section-subtitle">Boodschappen en richting voor jouw levensvragen</p>
+
+    <p>
+      Bij een kaartlegging gebruik ik de kaarten van de Aartsengelen als spiegel voor jouw huidige situatie. Dit is een prachtige set van 44 kaarten die je verbindt met de liefdevolle energie van acht aartsengelen. Elke kaart draagt afbeeldingen en symbolen die horen bij een specifieke aartsengel.
+    </p>
+    <p>
+      Aartsengelen worden gezien als boodschappers van liefde — ze bieden een uitgestoken hand die je kunt pakken wanneer je ondersteuning nodig hebt op je levenspad. De kaarten helpen om richting te wijzen, blokkades zichtbaar te maken en je te omringen met positieve energie. Ze brengen inzicht bij vragen over relaties, werk, persoonlijke groei of lastige keuzes waar je voor staat.
+    </p>
+    <p>
+      Ik leg de kaarten altijd in combinatie met mijn eigen intuïtie. Dat betekent dat ik naast de kaarten ook doorgeef wat ik zelf voel en ontvang. Zo ontstaat er een compleet en persoonlijk beeld dat je helpt om met meer helderheid en vertrouwen verder te gaan.
+    </p>
+    <p>
+      Je kunt een kaartlegging los boeken als aparte sessie. Maar na een reading sluit ik altijd af met een kaartlegging — zo kun je zelf bevestigd krijgen dat de reading ook klopt. De kaarten ondersteunen en bekrachtigen wat er tijdens de reading naar voren is gekomen.
+    </p>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       10. FOTO BOODSCHAP
+  ═══════════════════════════════════════ -->
+  <section class="section-wide bg-sand fade-in">
+    <div class="inner">
+      <div class="section-label">Foto Boodschap</div>
+      <h2 class="section-title">Foto <em>Boodschap</em></h2>
+      <p class="section-subtitle">Een persoonlijke boodschap vanuit jouw foto</p>
+
+      <p>
+        De foto boodschap is een laagdrempelige en persoonlijke dienst. Je stuurt mij een foto — van jezelf of een dierbare — en ik stem mij af op de energie van de foto. Wat ik ontvang, schrijf ik voor je uit als een persoonlijke boodschap.
+      </p>
+      <p>
+        Dit is ideaal als je behoefte hebt aan een stukje inzicht of bevestiging, maar (nog) niet klaar bent voor een volledige sessie. Of als je iemand een bijzonder en persoonlijk cadeau wilt geven.
+      </p>
+      <p>
+        De foto boodschap kan ook over een overledene gaan. Vaak komen er liefdevolle boodschappen door die troost en herkenning bieden.
+      </p>
+      <p>
+        Je ontvangt de boodschap digitaal.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       DISCLAIMER
+  ═══════════════════════════════════════ -->
+  <section class="section-wide bg-sand fade-in">
+    <div class="inner" style="text-align: center; max-width: 700px;">
+      <div class="section-label">Belangrijk om te weten</div>
+      <h2 class="section-title">Een helder voelend persoon, <em>geen dokter</em></h2>
+      <p class="section-subtitle">Transparantie vanuit respect voor jou</p>
+
+      <p>
+        Ik wil altijd eerlijk en open zijn naar de mensen die bij mij komen. Ik ben geen arts en geen psycholoog. Mijn werk vervangt nooit medisch advies of een behandeling door een professional.
+      </p>
+      <p>
+        Wat ik wél ben, is een helder voelend persoon. Met mijn handen en mijn intuïtie voel ik waar een chakra vastzit en opgeruimd mag worden, waar energie blokkeert en waar jouw lichaam om aandacht vraagt. Ik werk vanuit gevoel en verbinding — niet vanuit diagnose.
+      </p>
+      <p>
+        Heb je fysieke of psychische klachten? Raadpleeg dan altijd eerst je huisarts of behandelaar. Mijn sessies kunnen een mooie aanvulling zijn op reguliere zorg, maar zijn daar nooit een vervanging van.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       11-13. BOEKEN / OP AFSTAND / GROEPSAVOND
+  ═══════════════════════════════════════ -->
+  <section class="booking-section fade-in" id="boeken">
+    <div class="section-label">Praktische informatie</div>
+    <h2 class="section-title">Hoe kun je <em>bij mij terecht?</em></h2>
+    <p class="section-subtitle">Meerdere mogelijkheden — kies wat bij je past</p>
+
+    <div class="booking-options">
+
+      <!-- Online boeken -->
+      <div class="booking-card">
+        <span class="b-icon">📅</span>
+        <h3>Online boeken</h3>
+        <p>
+          Via mijn online boekingssysteem kun je eenvoudig en snel een afspraak inplannen op een moment dat jou uitkomt. Je kiest je behandeling, een datum en tijd — en je ontvangt direct een bevestiging.
+        </p>
+      </div>
+
+      <!-- Op afstand -->
+      <div class="booking-card">
+        <span class="b-icon">🌍</span>
+        <h3>Op afstand</h3>
+        <p>
+          Energie kent geen afstand. Een healing, foto reading of kaartlegging kan ook volledig op afstand plaatsvinden. Via telefoon of videobellen — net zo krachtig als in de praktijk. Ideaal als je ver weg woont of liever vanuit huis werkt.
+        </p>
+      </div>
+
+      <!-- Groepsavond -->
+      <div class="booking-card">
+        <span class="b-icon">👥</span>
+        <h3>Groepsavond</h3>
+        <p>
+          Samen met maximaal 4 personen een bijzondere avond beleven? Tijdens een groepsavond combineer ik kaartleggingen, mini-readings en groepshealings in een warme, intieme sfeer. Perfect voor een vriendinnenavond of als je samen wilt ontdekken.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ INFO BAR ═══════════════ -->
+  <div class="info-bar fade-in">
+    <div class="info-item">
+      <div class="label">Sessie duur</div>
+      <div class="value">60 — 90 min</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Groepsavond</div>
+      <div class="value">Max 4 personen</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Op afstand</div>
+      <div class="value">Telefoon / Video</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Boeken</div>
+      <div class="value">Online afspraken</div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════ CTA ═══════════════ -->
+  <section class="cta-section fade-in">
+    <div class="stones-divider" style="margin-bottom: 2rem;">
+      <div class="stone-dot sm" style="background: var(--soft-gold);"></div>
+      <div class="stone-line" style="background: linear-gradient(to right, transparent, var(--soft-gold), transparent);"></div>
+      <div class="stone-dot lg" style="background: var(--soft-gold);"></div>
+      <div class="stone-line" style="background: linear-gradient(to right, transparent, var(--soft-gold), transparent);"></div>
+      <div class="stone-dot sm" style="background: var(--soft-gold);"></div>
+    </div>
+    <h2>Klaar om te voelen<br/>wat jouw ziel je wil vertellen?</h2>
+    <p>Neem contact op of boek direct een sessie. De eerste stap is altijd de moedigste — en je hoeft hem niet alleen te zetten.</p>
+    <a href="#" class="cta-btn">Neem contact op</a>
+  </section>
+
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    Souls <span>of</span> Energy — door Nancy &nbsp;·&nbsp; Met liefde, intuïtie en zielskracht
+  </footer>
+
+
+  <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Nav shrink on scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
+
+</body>
+</html>
